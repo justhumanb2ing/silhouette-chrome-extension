@@ -4,7 +4,7 @@
     "description": "확장프로그램명"
   },
   "extensionDescription": {
-    "message": "Plasmo extension for Silhouette",
+    "message": "링크를 쉽고 빠르게 저장하는 방법",
     "description": "Silhouette Plasmo Extension"
   },
   "signIn": {
@@ -18,6 +18,10 @@
   "signOut": {
     "message": "로그아웃",
     "description": "로그아웃 버튼"
+  },
+  "save": {
+    "message": "저장",
+    "description": "저장 버튼"
   },
   "shortcutChipTitle": {
     "message": "단축키 준비 완료",

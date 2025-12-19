@@ -4,7 +4,7 @@
     "description": "Extension name"
   },
   "extensionDescription": {
-    "message": "Plasmo extension for Silhouette",
+    "message": "A fast and easy way to gather links.",
     "description": "Extension description"
   },
   "signIn": {
@@ -18,6 +18,10 @@
   "signOut": {
     "message": "Sign out",
     "description": "Sign out button"
+  },
+  "save": {
+    "message": "Save",
+    "description": "Save Button"
   },
   "shortcutChipTitle": {
     "message": "Shortcut Ready",
