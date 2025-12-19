@@ -1,0 +1,114 @@
+{
+  "extensionName": {
+    "message": "Silhouette",
+    "description": "Extension name"
+  },
+  "extensionDescription": {
+    "message": "Plasmo extension for Silhouette",
+    "description": "Extension description"
+  },
+  "signIn": {
+    "message": "Sign in",
+    "description": "Sign in button"
+  },
+  "signUp": {
+    "message": "Sign up",
+    "description": "Sign up button"
+  },
+  "signOut": {
+    "message": "Sign out",
+    "description": "Sign out button"
+  },
+  "shortcutChipTitle": {
+    "message": "Shortcut Ready",
+    "description": "Overlay chip title"
+  },
+  "shortcutChipSubtitle": {
+    "message": "Press the saved combo to reveal this tab's URL.",
+    "description": "Overlay chip subtitle"
+  },
+  "currentUrlLabel": {
+    "message": "Current URL",
+    "description": "Label for current URL text"
+  },
+  "shortcutHudHint": {
+    "message": "Shortcut captured in this tab. Change it anytime from the Silhouette popup.",
+    "description": "Hint text under the URL toast"
+  },
+  "shortcutSaveError": {
+    "message": "We couldn't save that shortcut.",
+    "description": "Error when shortcut fails to save"
+  },
+  "shortcutSaveSuccess": {
+    "message": "Shortcut updated everywhere instantly.",
+    "description": "Message after saving shortcut"
+  },
+  "shortcutModifierWarning": {
+    "message": "Include at least one key with your modifiers.",
+    "description": "Warning when only modifier keys are pressed"
+  },
+  "shortcutRecording": {
+    "message": "Press the combo you want to use.",
+    "description": "Prompt while recording a shortcut"
+  },
+  "shortcutResetMessage": {
+    "message": "Reset to the default shortcut.",
+    "description": "Message after resetting the shortcut"
+  },
+  "shortcutHeroTitle": {
+    "message": "URL Shortcut Studio",
+    "description": "Headline for the shortcut page"
+  },
+  "shortcutHeroSubtitle": {
+    "message": "Call up the active tab's address with your own shortcut.",
+    "description": "Subhead for the shortcut page"
+  },
+  "shortcutCurrentLabel": {
+    "message": "Current combo",
+    "description": "Label for current shortcut"
+  },
+  "shortcutResetButton": {
+    "message": "Reset",
+    "description": "Reset button label"
+  },
+  "shortcutHintGlobal": {
+    "message": "Works on every page",
+    "description": "Hint badge copy"
+  },
+  "shortcutHintOverlay": {
+    "message": "Appears on the top-right overlay",
+    "description": "Hint badge copy"
+  },
+  "shortcutHintInstant": {
+    "message": "Updates instantly",
+    "description": "Hint badge copy"
+  },
+  "shortcutHintEditable": {
+    "message": "Editable anytime",
+    "description": "Hint badge copy"
+  },
+  "shortcutCaptureLabel": {
+    "message": "Capture a new shortcut",
+    "description": "Section label for recording"
+  },
+  "shortcutIdleHint": {
+    "message": "Hit capture, then press the keys.",
+    "description": "Idle hint before recording"
+  },
+  "shortcutRecordingAction": {
+    "message": "Press now to save",
+    "description": "CTA while recording"
+  },
+  "shortcutRecordButton": {
+    "message": "Capture shortcut",
+    "description": "Record button text"
+  },
+  "shortcutRecordHint": {
+    "message": "Mix Cmd/Ctrl, Shift, Alt with any key you like.",
+    "description": "Helper text under record button"
+  },
+  "shortcutLiveBadge": {
+    "message": "Saved instantly and synced to the overlay.",
+    "description": "Live sync hint"
+  }
+}

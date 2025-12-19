@@ -1,8 +1,8 @@
 {
-  "name": "clerk-chrome-extension",
-  "displayName": "Clerk chrome extension",
+  "name": "Silhouette Chrome Extension",
+  "displayName": "__MSG_extensionName__",
   "version": "0.0.1",
-  "description": "Palsmo Extension for Silhouette",
+  "description": "__MSG_extensionDescription__",
   "author": "KINMONGSANG",
   "scripts": {
     "dev": "plasmo dev",
@@ -10,9 +10,11 @@
     "package": "plasmo package"
   },
   "dependencies": {
+    "@clerk/chrome-extension": "^2.8.13",
     "plasmo": "0.90.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-router": "^7.11.0",
     "tailwindcss": "3.4.1"
   },
   "devDependencies": {
@@ -26,7 +28,28 @@
     "typescript": "5.3.3"
   },
   "manifest": {
+    "name": "__MSG_extensionName__",
+    "description": "__MSG_extensionDescription__",
+    "default_locale": "ko",
+    "key": "$CRX_PUBLIC_KEY",
+    "permissions": [
+      "cookies",
+      "storage",
+      "tabs"
+    ],
+    "commands": {
+      "save-current-page": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+S",
+          "mac": "Command+Shift+S"
+        },
+        "description": "Save current page URL"
+      }
+    },
     "host_permissions": [
+      "$PLASMO_PUBLIC_CLERK_SYNC_HOST/*",
+      "http://localhost/*",
+      "$CLERK_FRONTEND_API/*",
       "https://*/*"
     ]
   }

@@ -1,10 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --font-anton: "Anton", sans-serif;
+}
+
 #plasmo-shadow-container {
   all: initial;
   box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-display);
+}
+
+@theme {
+  --font-anton: "Anton", sans-serif;
+}
+
+.plasmo-font-anton {
+  font-family: var(--font-anton, "Anton", sans-serif);
 }

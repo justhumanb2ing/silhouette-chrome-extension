@@ -1,0 +1,114 @@
+{
+  "extensionName": {
+    "message": "Silhouette",
+    "description": "확장프로그램명"
+  },
+  "extensionDescription": {
+    "message": "Plasmo extension for Silhouette",
+    "description": "Silhouette Plasmo Extension"
+  },
+  "signIn": {
+    "message": "로그인",
+    "description": "로그인 버튼"
+  },
+  "signUp": {
+    "message": "회원가입",
+    "description": "회원가입 버튼"
+  },
+  "signOut": {
+    "message": "로그아웃",
+    "description": "로그아웃 버튼"
+  },
+  "shortcutChipTitle": {
+    "message": "단축키 준비 완료",
+    "description": "오버레이 칩 타이틀"
+  },
+  "shortcutChipSubtitle": {
+    "message": "저장한 조합을 누르면 현재 탭의 주소가 나타납니다.",
+    "description": "오버레이 칩 설명"
+  },
+  "currentUrlLabel": {
+    "message": "현재 URL",
+    "description": "현재 주소 라벨"
+  },
+  "shortcutHudHint": {
+    "message": "이 탭에서 단축키가 캡처되었습니다. Silhouette 팝업에서 언제든 수정하세요.",
+    "description": "URL 토스트 하단 설명"
+  },
+  "shortcutSaveError": {
+    "message": "단축키를 저장하지 못했습니다.",
+    "description": "저장 실패 메시지"
+  },
+  "shortcutSaveSuccess": {
+    "message": "모든 페이지에 새 단축키가 즉시 적용됩니다.",
+    "description": "저장 성공 메시지"
+  },
+  "shortcutModifierWarning": {
+    "message": "조합 키와 함께 한 개 이상의 키를 입력하세요.",
+    "description": "수정키만 눌렀을 때 경고"
+  },
+  "shortcutRecording": {
+    "message": "원하는 키 조합을 눌러주세요.",
+    "description": "녹화 중 안내"
+  },
+  "shortcutResetMessage": {
+    "message": "기본 단축키로 되돌렸습니다.",
+    "description": "초기화 완료 메시지"
+  },
+  "shortcutHeroTitle": {
+    "message": "URL 단축키 스튜디오",
+    "description": "홈 화면 헤드라인"
+  },
+  "shortcutHeroSubtitle": {
+    "message": "원하는 단축키로 현재 탭 주소를 바로 불러옵니다.",
+    "description": "홈 화면 서브헤드"
+  },
+  "shortcutCurrentLabel": {
+    "message": "현재 설정",
+    "description": "현재 단축키 라벨"
+  },
+  "shortcutResetButton": {
+    "message": "기본값",
+    "description": "초기화 버튼"
+  },
+  "shortcutHintGlobal": {
+    "message": "모든 페이지에서 동작",
+    "description": "힌트 배지"
+  },
+  "shortcutHintOverlay": {
+    "message": "화면 우측 상단에 표시",
+    "description": "힌트 배지"
+  },
+  "shortcutHintInstant": {
+    "message": "입력 즉시 업데이트",
+    "description": "힌트 배지"
+  },
+  "shortcutHintEditable": {
+    "message": "언제든 수정 가능",
+    "description": "힌트 배지"
+  },
+  "shortcutCaptureLabel": {
+    "message": "새 단축키 녹화",
+    "description": "녹화 섹션 타이틀"
+  },
+  "shortcutIdleHint": {
+    "message": "녹화 버튼을 누르고 조합을 입력하세요.",
+    "description": "녹화 전 안내"
+  },
+  "shortcutRecordingAction": {
+    "message": "지금 키를 누르세요",
+    "description": "녹화 중 CTA"
+  },
+  "shortcutRecordButton": {
+    "message": "단축키 캡처",
+    "description": "녹화 버튼 텍스트"
+  },
+  "shortcutRecordHint": {
+    "message": "Cmd/Ctrl, Shift, Alt와 원하는 키를 조합하세요.",
+    "description": "녹화 버튼 하단 안내"
+  },
+  "shortcutLiveBadge": {
+    "message": "입력 즉시 저장되고 오버레이와 동기화됩니다.",
+    "description": "라이브 동기화 안내"
+  }
+}
