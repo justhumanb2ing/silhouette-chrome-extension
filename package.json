@@ -54,6 +54,19 @@
       "http://localhost/*",
       "$CLERK_FRONTEND_API/*",
       "https://*/*"
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "options.html"
+        ],
+        "matches": [
+          "<all_urls>"
+        ],
+        "extension_ids": [
+          "$CRX_ID"
+        ]
+      }
     ]
   }
 }

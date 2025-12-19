@@ -1,5 +1,7 @@
-import { useUser } from "@clerk/chrome-extension"
+import { useAuth, useUser } from "@clerk/chrome-extension"
 import { useEffect, useRef, useState } from "react"
+
+import { createSupabaseClient } from "../../../core/supabase"
 
 const getOgTitleFromPage = () => {
   const ogTitle =
@@ -13,7 +15,10 @@ export const Home = () => {
   const currentUrlRef = useRef("")
   const [title, setTitle] = useState("")
   const [isLoading, setIsLoading] = useState(true)
-  const { isSignedIn } = useUser()
+  const [isSaving, setIsSaving] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("")
+  const { isSignedIn, user, isLoaded } = useUser()
+  const { getToken } = useAuth()
 
   useEffect(() => {
     chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
@@ -47,6 +52,53 @@ export const Home = () => {
     })
   }, [])
 
+  const handleSave = async () => {
+    if (isSaving) return
+    if (!user?.id) {
+      setErrorMessage("로그인이 필요합니다.")
+      return
+    }
+
+    const url = currentUrlRef.current
+    if (!url) {
+      setErrorMessage("URL을 찾지 못했습니다.")
+      return
+    }
+
+    setIsSaving(true)
+    setErrorMessage("")
+
+    try {
+      const accessToken = await getToken()
+      if (!accessToken) {
+        setErrorMessage("인증 토큰을 가져오지 못했습니다.")
+        return
+      }
+
+      const supabase = createSupabaseClient(accessToken)
+      const { error } = await supabase.from("links").insert({
+        user_id: user.id,
+        url,
+        title
+      })
+
+      if (error) {
+        setErrorMessage(`${error.code} ${error.message}`)
+      }
+    } catch (error) {
+      console.error("Save failed:", error)
+      setErrorMessage("네트워크 오류로 저장에 실패했습니다.")
+    } finally {
+      setIsSaving(false)
+    }
+  }
+
+  if (!isLoaded) {
+    return (
+      <div className="h-40 flex items-center justify-center">Loading...</div>
+    )
+  }
+
   return isSignedIn ? (
     <main className="flex flex-col gap-3 p-4">
       <div>
@@ -60,8 +112,14 @@ export const Home = () => {
           disabled={isLoading}
         />
       </div>
-      <button className="rounded-md bg-neutral-950 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-neutral-700">
-        {chrome.i18n.getMessage("save")}
+      {errorMessage ? (
+        <p className="text-xs text-red-600">{errorMessage}</p>
+      ) : null}
+      <button
+        className="rounded-md bg-neutral-950 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-60"
+        onClick={() => void handleSave()}
+        disabled={isLoading || isSaving}>
+        {isSaving ? "Saving..." : chrome.i18n.getMessage("save")}
       </button>
     </main>
   ) : (
