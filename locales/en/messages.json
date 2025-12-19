@@ -31,6 +31,26 @@
     "message": "Current URL",
     "description": "Label for current URL text"
   },
+  "activeTabLoading": {
+    "message": "Pulling your active tab...",
+    "description": "Loading state for active tab URL"
+  },
+  "activeTabUnavailable": {
+    "message": "We couldn't read this tab's URL.",
+    "description": "Error when active tab URL missing"
+  },
+  "activeTabRefresh": {
+    "message": "Refresh",
+    "description": "Refresh active tab URL button text"
+  },
+  "homeSignedOutTitle": {
+    "message": "Sign in to see your active tab.",
+    "description": "Headline when signed out on home"
+  },
+  "homeSignedOutSubtitle": {
+    "message": "Once you're signed in, the URL of the page you're viewing appears here.",
+    "description": "Subtitle for signed out hero"
+  },
   "shortcutHudHint": {
     "message": "Shortcut captured in this tab. Change it anytime from the Silhouette popup.",
     "description": "Hint text under the URL toast"

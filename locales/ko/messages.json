@@ -31,6 +31,26 @@
     "message": "현재 URL",
     "description": "현재 주소 라벨"
   },
+  "activeTabLoading": {
+    "message": "현재 탭 주소를 불러오는 중입니다...",
+    "description": "현재 탭 URL 불러오는 중"
+  },
+  "activeTabUnavailable": {
+    "message": "현재 탭의 주소를 가져오지 못했습니다.",
+    "description": "현재 탭 URL 불러오기 실패"
+  },
+  "activeTabRefresh": {
+    "message": "새로고침",
+    "description": "현재 탭 URL 다시 불러오기 버튼"
+  },
+  "homeSignedOutTitle": {
+    "message": "로그인하면 현재 탭을 볼 수 있어요.",
+    "description": "로그아웃 상태 홈 타이틀"
+  },
+  "homeSignedOutSubtitle": {
+    "message": "로그인 후 팝업을 열면 지금 보고 있는 페이지의 주소가 여기 표시됩니다.",
+    "description": "로그아웃 상태 홈 설명"
+  },
   "shortcutHudHint": {
     "message": "이 탭에서 단축키가 캡처되었습니다. Silhouette 팝업에서 언제든 수정하세요.",
     "description": "URL 토스트 하단 설명"

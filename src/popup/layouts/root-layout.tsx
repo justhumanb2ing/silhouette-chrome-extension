@@ -2,12 +2,13 @@ import {
   ClerkProvider,
   SignedIn,
   SignedOut,
-  SignOutButton,
+  SignOutButton
 } from "@clerk/chrome-extension"
 import { Link, Outlet, useNavigate } from "react-router"
 
 const PUBLISHABLE_KEY = process.env.PLASMO_PUBLIC_CLERK_PUBLISHABLE_KEY
 const SYNC_HOST = process.env.PLASMO_PUBLIC_CLERK_SYNC_HOST
+const IS_DEV = process.env.NODE_ENV === "development"
 
 if (!PUBLISHABLE_KEY || !SYNC_HOST) {
   throw new Error(
@@ -42,10 +43,15 @@ export const RootLayout = () => {
               <SignOutButton>{chrome.i18n.getMessage("signOut")}</SignOutButton>
             </SignedIn>
             <SignedOut>
-              <div className="plasmo-flex plasmo-items-center plasmo-gap-2 plasmo-text-sm">
-                <Link to="/sign-in">{chrome.i18n.getMessage("signIn")}</Link>
-                <Link to="/sign-up">{chrome.i18n.getMessage("signUp")}</Link>
-              </div>
+              <button
+                className="plasmo-rounded-md plasmo-bg-slate-900 plasmo-px-3 plasmo-py-1.5 plasmo-text-sm plasmo-font-medium plasmo-text-white plasmo-transition hover:plasmo-bg-slate-800"
+                onClick={() =>
+                  chrome.tabs.create({
+                    url: `${SYNC_HOST + (IS_DEV ? ":5173" : "")}/en/sign-in`
+                  })
+                }>
+                {chrome.i18n.getMessage("signIn")}
+              </button>
             </SignedOut>
           </footer>
         </header>
