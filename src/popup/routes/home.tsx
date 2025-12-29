@@ -12,12 +12,13 @@ type Category = {
   name: string
 }
 
-const getOgTitleFromPage = () => {
-  const ogTitle =
-    document
-      .querySelector('meta[property="og:title"], meta[name="og:title"]')
-      ?.getAttribute("content") ?? ""
-  return ogTitle || document.title || ""
+type CrawlResponse = {
+  title?: string | null
+  description?: string | null
+  imageUrl?: string | null
+  site_name?: string | null
+  url?: string | null
+  icon?: string | null
 }
 
 const queryActiveTab = () =>
@@ -30,21 +31,6 @@ const queryActiveTab = () =>
 
       resolve(tabs?.[0] ?? null)
     })
-  })
-
-const fetchOgTitleFromTab = (tabId: number) =>
-  new Promise<string>((resolve, reject) => {
-    chrome.scripting.executeScript(
-      { target: { tabId }, func: getOgTitleFromPage },
-      (results) => {
-        if (chrome.runtime.lastError) {
-          reject(new Error(chrome.runtime.lastError.message))
-          return
-        }
-
-        resolve(results?.[0]?.result || "")
-      }
-    )
   })
 
 export const Home = () => {
@@ -62,7 +48,7 @@ export const Home = () => {
   const isNewCategorySelected = selectedCategoryId === NEW_CATEGORY_VALUE
   const isBusy = isLoading || isSaving
   const isCategoryBusy = isCategoriesLoading || isSaving
-
+  
   useEffect(() => {
     let isMounted = true
 
@@ -73,16 +59,8 @@ export const Home = () => {
 
         const fallbackTitle = activeTab.title ?? ""
         currentUrlRef.current = activeTab.url ?? ""
-
-        try {
-          const ogTitle = await fetchOgTitleFromTab(activeTab.id)
-          if (isMounted) {
-            setTitle(ogTitle || fallbackTitle)
-          }
-        } catch {
-          if (isMounted) {
-            setTitle(fallbackTitle)
-          }
+        if (isMounted) {
+          setTitle(fallbackTitle)
         }
       } catch (error) {
         console.error("Load active tab failed:", error)
@@ -169,7 +147,7 @@ export const Home = () => {
     setErrorMessage("")
 
     try {
-      const accessToken = await getToken()
+      const accessToken = await getToken({})
       if (!accessToken) {
         setErrorMessage("인증 토큰을 가져오지 못했습니다.")
         return
@@ -190,7 +168,8 @@ export const Home = () => {
         }
 
         const existingCategory = categories.find(
-          (category) => category.name.toLowerCase() === trimmedName.toLowerCase()
+          (category) =>
+            category.name.toLowerCase() === trimmedName.toLowerCase()
         )
 
         if (existingCategory) {
@@ -220,10 +199,28 @@ export const Home = () => {
         categoryId = selectedCategoryId
       }
 
+      const crawlResponse = await fetch("http://localhost:8000/crawl", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // Authorization: `Bearer ${accessToken}`
+        },
+        body: JSON.stringify({ url })
+      })
+
+      if (!crawlResponse.ok) {
+        setErrorMessage("크롤링 요청에 실패했습니다.")
+        return
+      }
+
+      const data = (await crawlResponse.json()).data as CrawlResponse
+
       const { error } = await supabase.from("links").insert({
         user_id: user.id,
         url,
-        title,
+        title: data.title,
+        description: data.description,
+        image_url: data.imageUrl,
         category_id: categoryId
       })
 
@@ -232,7 +229,9 @@ export const Home = () => {
       }
     } catch (error) {
       console.error("Save failed:", error)
-      setErrorMessage("네트워크 오류로 저장에 실패했습니다.")
+      setErrorMessage(
+        "네트워크 오류로 저장에 실패했습니다." + error.message + error
+      )
     } finally {
       setIsSaving(false)
     }
@@ -278,9 +277,7 @@ export const Home = () => {
               카테고리
             </label>
             {isCategoriesLoading ? (
-              <span className="text-[11px] text-slate-500">
-                불러오는 중...
-              </span>
+              <span className="text-[11px] text-slate-500">불러오는 중...</span>
             ) : null}
           </div>
           <select
