@@ -1,11 +1,11 @@
 {
   "extensionName": {
-    "message": "Silhouette",
+    "message": "Poketto",
     "description": "확장프로그램명"
   },
   "extensionDescription": {
     "message": "링크를 쉽고 빠르게 저장하는 방법",
-    "description": "Silhouette Plasmo Extension"
+    "description": "Poketto Plasmo Extension"
   },
   "signIn": {
     "message": "로그인",
@@ -56,7 +56,7 @@
     "description": "로그아웃 상태 홈 설명"
   },
   "shortcutHudHint": {
-    "message": "이 탭에서 단축키가 캡처되었습니다. Silhouette 팝업에서 언제든 수정하세요.",
+    "message": "이 탭에서 단축키가 캡처되었습니다. Poketto 팝업에서 언제든 수정하세요.",
     "description": "URL 토스트 하단 설명"
   },
   "shortcutSaveError": {

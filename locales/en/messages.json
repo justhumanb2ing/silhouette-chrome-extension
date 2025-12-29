@@ -1,10 +1,10 @@
 {
   "extensionName": {
-    "message": "Silhouette",
+    "message": "Poketto",
     "description": "Extension name"
   },
   "extensionDescription": {
-    "message": "A fast and easy way to gather links.",
+    "message": "Save links fast, find them faster",
     "description": "Extension description"
   },
   "signIn": {
@@ -56,7 +56,7 @@
     "description": "Subtitle for signed out hero"
   },
   "shortcutHudHint": {
-    "message": "Shortcut captured in this tab. Change it anytime from the Silhouette popup.",
+    "message": "Shortcut captured in this tab. Change it anytime from the Poketto popup.",
     "description": "Hint text under the URL toast"
   },
   "shortcutSaveError": {

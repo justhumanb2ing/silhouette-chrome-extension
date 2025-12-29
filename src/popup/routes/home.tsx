@@ -257,7 +257,7 @@ export const Home = () => {
             링크 제목
           </label>
           <input
-            className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none transition focus:border-slate-400 disabled:bg-slate-100"
+            className="w-full border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none transition focus:border-slate-400 disabled:bg-slate-100"
             placeholder={
               isLoading ? TITLE_LOADING_PLACEHOLDER : TITLE_READY_PLACEHOLDER
             }
@@ -281,7 +281,7 @@ export const Home = () => {
             ) : null}
           </div>
           <select
-            className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none transition focus:border-slate-400 disabled:bg-slate-100"
+            className="w-full border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none transition focus:border-slate-400 disabled:bg-slate-100"
             value={selectedCategoryId}
             onChange={(event) => {
               if (errorMessage) {
@@ -308,7 +308,7 @@ export const Home = () => {
               새 카테고리 이름
             </label>
             <input
-              className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none transition focus:border-slate-400 disabled:bg-slate-100"
+              className="w-full border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none transition focus:border-slate-400 disabled:bg-slate-100"
               placeholder="새 카테고리 이름"
               value={newCategoryName}
               maxLength={50}
@@ -328,7 +328,7 @@ export const Home = () => {
           </p>
         ) : null}
         <button
-          className="rounded-md bg-neutral-950 px-3 py-2 text-sm font-medium text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-60"
+          className="bg-neutral-950 px-3 py-2 text-sm font-medium text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-60"
           type="submit"
           disabled={isBusy}>
           {isSaving ? "Saving..." : chrome.i18n.getMessage("save")}
@@ -336,11 +336,11 @@ export const Home = () => {
       </form>
     </main>
   ) : (
-    <div className="flex flex-col items-center justify-center gap-2">
-      <h1 className="font-black text-5xl font-anton uppercase">
+    <div className="flex flex-col items-center justify-center gap-2 py-12">
+      <h1 className="font-black text-5xl font-anton italic uppercase tracking-wide">
         {chrome.i18n.getMessage("extensionName")}
       </h1>
-      <h2 className="text-lg font-medium text-slate-700 text-center">
+      <h2 className="text-lg text-slate-700 text-center">
         {chrome.i18n.getMessage("extensionDescription")}
       </h2>
     </div>
